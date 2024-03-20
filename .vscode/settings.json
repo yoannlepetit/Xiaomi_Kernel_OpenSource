@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "fs.h": "c",
-        "segment.h": "c"
+        "segment.h": "c",
+        "xt_connmark.h": "c",
+        "types.h": "c"
     }
 }
