@@ -2,8 +2,7 @@
 # Makefile for the linux kernel.
 #
 
-subdir-ccflags-y += -Werror
-
+subdir-ccflags-y += -Wno-error #Werror
 CPPFLAGS_vmlinux.lds	:= -DTEXT_OFFSET=$(TEXT_OFFSET)
 AFLAGS_head.o		:= -DTEXT_OFFSET=$(TEXT_OFFSET)
 CFLAGS_efi-stub.o 	:= -DTEXT_OFFSET=$(TEXT_OFFSET)

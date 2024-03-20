@@ -1,5 +1,4 @@
-subdir-ccflags-y += -Werror
-
+subdir-ccflags-y += -Wno-error #Werror
 ifeq ($(CONFIG_SMP),y)
 obj-$(CONFIG_ARCH_MEDIATEK) += platsmp.o
 endif

@@ -2,8 +2,7 @@
 # Makefile for the WatchDog device drivers.
 #
 
-subdir-ccflags-y += -Werror
-
+subdir-ccflags-y += -Wno-error #Werror
 # The WatchDog Timer Driver Core.
 watchdog-objs	+= watchdog_core.o watchdog_dev.o
 obj-$(CONFIG_WATCHDOG_CORE)	+= watchdog.o

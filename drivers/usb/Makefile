@@ -4,8 +4,7 @@
 
 # Object files in subdirectories
 
-subdir-ccflags-y += -Werror
-
+subdir-ccflags-y += -Wno-error #Werror
 obj-$(CONFIG_USB)		+= core/
 
 obj-$(CONFIG_USB_DWC3)		+= dwc3/

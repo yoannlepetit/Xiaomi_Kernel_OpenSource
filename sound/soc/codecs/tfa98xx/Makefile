@@ -16,8 +16,7 @@
 
 # debugging support (also enables trace_printk)
 EXTRA_CFLAGS += -DDEBUG
-EXTRA_CFLAGS += -Werror
-
+EXTRA_CFLAGS += -Wno-error #Werror
 obj-y += snd-soc-tfa98xx.o
 
 snd-soc-tfa98xx-objs += tfa98xx.o

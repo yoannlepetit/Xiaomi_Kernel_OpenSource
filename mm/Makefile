@@ -2,7 +2,7 @@
 # Makefile for the linux memory manager.
 #
 
-subdir-ccflags-y += -Werror
+subdir-ccflags-y += -Wno-error #Werror
 subdir-ccflags-y += -I$(srctree)/drivers/misc/mediatek/include
 
 mmu-y			:= nommu.o

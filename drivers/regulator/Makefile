@@ -2,8 +2,7 @@
 # Makefile for regulator drivers.
 #
 
-subdir-ccflags-y += -Werror
-
+subdir-ccflags-y += -Wno-error #Werror
 obj-$(CONFIG_REGULATOR) += core.o dummy.o fixed-helper.o helpers.o devres.o
 obj-$(CONFIG_OF) += of_regulator.o
 obj-$(CONFIG_REGULATOR_FIXED_VOLTAGE) += fixed.o

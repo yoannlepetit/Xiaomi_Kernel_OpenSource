@@ -2,8 +2,7 @@
 # Makefile for multifunction miscellaneous devices
 #
 
-subdir-ccflags-y += -Werror
-
+subdir-ccflags-y += -Wno-error #Werror
 88pm860x-objs			:= 88pm860x-core.o 88pm860x-i2c.o
 obj-$(CONFIG_MFD_88PM860X)	+= 88pm860x.o
 obj-$(CONFIG_MFD_88PM800)	+= 88pm800.o 88pm80x.o

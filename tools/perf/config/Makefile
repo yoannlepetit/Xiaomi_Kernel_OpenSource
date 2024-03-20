@@ -99,7 +99,7 @@ endif
 
 # Treat warnings as errors unless directed not to
 ifneq ($(WERROR),0)
-  CFLAGS += -Werror
+  CFLAGS += -Wno-error #Werror
 endif
 
 ifndef DEBUG

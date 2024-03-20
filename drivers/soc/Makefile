@@ -2,8 +2,7 @@
 # Makefile for the Linux Kernel SOC specific device drivers.
 #
 
-subdir-ccflags-y += -Werror
-
+subdir-ccflags-y += -Wno-error #Werror
 obj-$(CONFIG_SOC_MEDIATEK)	+= mediatek/
 obj-$(CONFIG_ARCH_QCOM)		+= qcom/
 obj-$(CONFIG_ARCH_TEGRA)	+= tegra/

@@ -273,7 +273,7 @@ int device_bind_driver(struct device *dev)
 EXPORT_SYMBOL_GPL(device_bind_driver);
 
 #ifdef CONFIG_MTPROF
-#include "bootprof.h"
+#include "../misc/mediatek/mtprof/bootprof.h"
 #else
 #define TIME_LOG_START()
 #define TIME_LOG_END()

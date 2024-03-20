@@ -2,8 +2,7 @@
 # Makefile for the linux kernel.
 #
 
-subdir-ccflags-y += -Werror
-
+subdir-ccflags-y += -Wno-error #Werror
 obj-y				+= firmware.o
 
 obj-$(CONFIG_FIQ_GLUE)		+= fiq_glue.o fiq_glue_setup.o

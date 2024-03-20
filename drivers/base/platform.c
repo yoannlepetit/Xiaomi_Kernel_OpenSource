@@ -415,7 +415,7 @@ void platform_device_del(struct platform_device *pdev)
 EXPORT_SYMBOL_GPL(platform_device_del);
 
 #ifdef CONFIG_MTPROF
-#include "bootprof.h"
+#include "../misc/mediatek/mtprof/bootprof.h"
 #else
 #define TIME_LOG_START()
 #define TIME_LOG_END()

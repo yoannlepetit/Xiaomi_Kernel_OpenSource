@@ -1399,12 +1399,12 @@ static int mtee_probe(struct platform_device *pdev)
 {
 	int ret;
 	TZ_RESULT tzret;
-#ifdef ENABLE_INC_ONLY_COUNTER
+/*#ifdef ENABLE_INC_ONLY_COUNTER
 	struct task_struct *thread;
-#endif
-#ifdef TZ_SECURETIME_SUPPORT
+#endif*/
+/*#ifdef TZ_SECURETIME_SUPPORT
 	struct task_struct *thread_securetime_gb;
-#endif
+#endif*/
 #ifdef TZ_PLAYREADY_SECURETIME_SUPPORT
 	struct task_struct *thread_securetime;
 #ifdef CONFIG_HAS_EARLYSUSPEND
@@ -1412,11 +1412,11 @@ static int mtee_probe(struct platform_device *pdev)
 #endif
 #endif
 
-#if defined(CONFIG_MTEE_CMA_SECURE_MEMORY) && \
+/*#if defined(CONFIG_MTEE_CMA_SECURE_MEMORY) && \
 	!defined(NO_CMA_RELEASE_THROUGH_SHRINKER_FOR_EARLY_STAGE)
 	struct task_struct *thread_tz_cm_shrinker;
 #endif
-
+*/
 #ifdef CONFIG_OF
 	struct device_node *parent_node;
 
@@ -1465,7 +1465,7 @@ static int mtee_probe(struct platform_device *pdev)
 	kree_pm_init();
 
 #ifdef ENABLE_INC_ONLY_COUNTER
-	thread = kthread_run(update_counter_thread, NULL, "update_tz_counter");
+	kthread_run(update_counter_thread, NULL, "update_tz_counter");
 #endif
 
 	pr_debug("tz_client_init: successfully\n");
@@ -1490,13 +1490,13 @@ static int mtee_probe(struct platform_device *pdev)
 #endif
 
 #ifdef TZ_SECURETIME_SUPPORT
-	thread_securetime_gb = kthread_run(update_securetime_thread_gb, NULL,
+	kthread_run(update_securetime_thread_gb, NULL,
 						"update_securetime_gb");
 #endif
 
 #ifdef CONFIG_MTEE_CMA_SECURE_MEMORY
 #ifndef NO_CMA_RELEASE_THROUGH_SHRINKER_FOR_EARLY_STAGE
-	thread_tz_cm_shrinker = kthread_run(tz_cm_shrinker_thread, NULL,
+	kthread_run(tz_cm_shrinker_thread, NULL,
 						"tz_cm_shrinker");
 	register_shrinker(&tz_cm_shrinker);
 #endif  /* NO_CMA_RELEASE_THROUGH_SHRINKER_FOR_EARLY_STAGE */

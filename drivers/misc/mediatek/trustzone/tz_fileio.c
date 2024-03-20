@@ -32,14 +32,13 @@ struct file *FILE_Open(const char *path, int flags, int mode)
 {
 	struct file *filp = NULL;
 	mm_segment_t oldfs;
-	int err = 0;
 
 	oldfs = get_fs();
 	set_fs(get_ds());
 	filp = filp_open(path, flags, mode);
 	set_fs(oldfs);
 	if (IS_ERR(filp)) {
-		err = PTR_ERR(filp);
+		PTR_ERR(filp);
 		return NULL;
 	}
 	return filp;

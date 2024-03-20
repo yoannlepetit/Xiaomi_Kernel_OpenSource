@@ -784,7 +784,7 @@ static int __init_or_module do_one_initcall_debug(initcall_t fn)
 }
 
 #ifdef CONFIG_MTPROF
-#include "bootprof.h"
+#include "../drivers/misc/mediatek/mtprof/bootprof.h"
 #else
 #define TIME_LOG_START()
 #define TIME_LOG_END()
