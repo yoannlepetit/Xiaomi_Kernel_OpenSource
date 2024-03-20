@@ -11,9 +11,6 @@
  * GNU General Public License for more details.
  */
 
-
-
-
 #include <linux/fs.h>
 #include <asm/segment.h>
 #include <linux/uaccess.h>
@@ -32,13 +29,15 @@ struct file *FILE_Open(const char *path, int flags, int mode)
 {
 	struct file *filp = NULL;
 	mm_segment_t oldfs;
+	int err = 0;
 
 	oldfs = get_fs();
 	set_fs(get_ds());
 	filp = filp_open(path, flags, mode);
 	set_fs(oldfs);
-	if (IS_ERR(filp)) {
-		PTR_ERR(filp);
+	if (IS_ERR(filp))
+	{
+		err = PTR_ERR(filp);
 		return NULL;
 	}
 	return filp;
@@ -55,7 +54,7 @@ struct file *FILE_Open(const char *path, int flags, int mode)
  *  @retval   <0         Fail, errno
  */
 int FILE_Read(struct file *file, unsigned char *data, unsigned int size,
-		unsigned long long *offset)
+			  unsigned long long *offset)
 {
 	mm_segment_t oldfs;
 	int ret;
@@ -80,7 +79,7 @@ int FILE_Read(struct file *file, unsigned char *data, unsigned int size,
  *  @retval   <0         Fail, errno
  */
 int FILE_Write(struct file *file, unsigned char *data, unsigned int size,
-		unsigned long long *offset)
+			   unsigned long long *offset)
 {
 	mm_segment_t oldfs;
 	int ret;
@@ -105,7 +104,7 @@ int FILE_Write(struct file *file, unsigned char *data, unsigned int size,
  *  @retval   <0         Fail, errno
  */
 int FILE_ReadData(const char *path, unsigned int u4Offset, char *pData,
-			int i4Length)
+				  int i4Length)
 {
 	struct file *file = NULL;
 	UINT64 u8Offset = (UINT64)u4Offset;
@@ -119,7 +118,6 @@ int FILE_ReadData(const char *path, unsigned int u4Offset, char *pData,
 	return i4Length;
 }
 
-
 /** FILE_WriteData
  *  Write data to a file.
  *
@@ -131,12 +129,12 @@ int FILE_ReadData(const char *path, unsigned int u4Offset, char *pData,
  *  @retval   <0         Fail, errno
  */
 int FILE_WriteData(const char *path, unsigned int u4Offset, char *pData,
-			int i4Length)
+				   int i4Length)
 {
 	struct file *file = NULL;
 	UINT64 u8Offset = (UINT64)u4Offset;
 
-	file = FILE_Open(path, O_WRONLY|O_CREAT, 0644);
+	file = FILE_Open(path, O_WRONLY | O_CREAT, 0644);
 	if (!file)
 		return -EFAULT;
 
@@ -144,4 +142,3 @@ int FILE_WriteData(const char *path, unsigned int u4Offset, char *pData,
 	filp_close(file, NULL);
 	return i4Length;
 }
-

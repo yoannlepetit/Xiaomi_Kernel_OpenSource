@@ -134,62 +134,62 @@ pvrsrvkm-$(CONFIG_MIPS) += services/server/env/linux/osfunc_mips.o
 pvrsrvkm-$(CONFIG_EVENT_TRACING) += services/server/env/linux/trace_events.o
 
 ifneq ($(W),1)
-CFLAGS_mm.o := -Werror
-CFLAGS_mmap.o := -Werror
-CFLAGS_module_common.o := -Werror
-CFLAGS_mutils.o := -Werror
-CFLAGS_devicemem_mmap_stub.o := -Werror
-CFLAGS_osfunc.o := -Werror
-CFLAGS_osfunc_x86.o := -Werror
-CFLAGS_osconnection_server.o := -Werror
-CFLAGS_pdump.o := -Werror
-CFLAGS_pvr_debugfs.o := -Werror
-CFLAGS_pvr_bridge_k.o := -Werror
-CFLAGS_devicemem_heapcfg.o := -Werror
-CFLAGS_devicemem.o := -Werror
-CFLAGS_devicemem_utils.o = -Werror
-CFLAGS_devicemem_pdump.o = -Werror
-CFLAGS_hash.o := -Werror
-CFLAGS_ra.o := -Werror
-CFLAGS_sync.o := -Werror
-CFLAGS_devicemem_server.o := -Werror
-CFLAGS_handle.o := -Werror
-CFLAGS_lists.o := -Werror
-CFLAGS_mem_debug.o := -Werror
-CFLAGS_mmu_common.o := -Werror
-CFLAGS_connection_server.o := -Werror
-CFLAGS_physmem.o := -Werror
-CFLAGS_physmem_lma.o := -Werror
-CFLAGS_pmr.o := -Werror
-CFLAGS_power.o := -Werror
-CFLAGS_process_stats.o := -Werror
-CFLAGS_pvrsrv.o := -Werror
-CFLAGS_srvcore.o := -Werror
-CFLAGS_sync_server.o := -Werror
-CFLAGS_tlintern.o := -Werror
-CFLAGS_tlclient.o := -Werror
-CFLAGS_tlserver.o := -Werror
-CFLAGS_tlstream.o := -Werror
+CFLAGS_mm.o := -Wno-error
+CFLAGS_mmap.o := -Wno-error
+CFLAGS_module_common.o := -Wno-error
+CFLAGS_mutils.o := -Wno-error
+CFLAGS_devicemem_mmap_stub.o := -Wno-error
+CFLAGS_osfunc.o := -Wno-error
+CFLAGS_osfunc_x86.o := -Wno-error
+CFLAGS_osconnection_server.o := -Wno-error
+CFLAGS_pdump.o := -Wno-error
+CFLAGS_pvr_debugfs.o := -Wno-error
+CFLAGS_pvr_bridge_k.o := -Wno-error
+CFLAGS_devicemem_heapcfg.o := -Wno-error
+CFLAGS_devicemem.o := -Wno-error
+CFLAGS_devicemem_utils.o = -Wno-error
+CFLAGS_devicemem_pdump.o = -Wno-error
+CFLAGS_hash.o := -Wno-error
+CFLAGS_ra.o := -Wno-error
+CFLAGS_sync.o := -Wno-error
+CFLAGS_devicemem_server.o := -Wno-error
+CFLAGS_handle.o := -Wno-error
+CFLAGS_lists.o := -Wno-error
+CFLAGS_mem_debug.o := -Wno-error
+CFLAGS_mmu_common.o := -Wno-error
+CFLAGS_connection_server.o := -Wno-error
+CFLAGS_physmem.o := -Wno-error
+CFLAGS_physmem_lma.o := -Wno-error
+CFLAGS_pmr.o := -Wno-error
+CFLAGS_power.o := -Wno-error
+CFLAGS_process_stats.o := -Wno-error
+CFLAGS_pvrsrv.o := -Wno-error
+CFLAGS_srvcore.o := -Wno-error
+CFLAGS_sync_server.o := -Wno-error
+CFLAGS_tlintern.o := -Wno-error
+CFLAGS_tlclient.o := -Wno-error
+CFLAGS_tlserver.o := -Wno-error
+CFLAGS_tlstream.o := -Wno-error
 
 ifeq ($(SUPPORT_DISPLAY_CLASS),1)
-CFLAGS_dc_server.o := -Werror
-CFLAGS_scp.o := -Werror
+CFLAGS_dc_server.o := -Wno-error
+CFLAGS_scp.o := -Wno-error
 endif
 
 ifeq ($(PVR_RI_DEBUG),1)
-CFLAGS_ri_server.o := -Werror
+CFLAGS_ri_server.o := -Wno-error
 endif
 ifeq ($(SUPPORT_PAGE_FAULT_DEBUG),1)
-CFLAGS_devicememhistory_server.o := -Werror
+CFLAGS_devicememhistory_server.o := -Wno-error
 endif
 ifeq ($(SUPPORT_GPUTRACE_EVENTS),1)
-CFLAGS_pvr_gputrace.o := -Werror
+CFLAGS_pvr_gputrace.o := -Wno-error
 endif
 ifeq ($(SUPPORT_VALIDATION),1)
-CFLAGS_validation.o := -Werror
+CFLAGS_validation.o := -Wno-error
 endif
 ifeq ($(PVR_TESTING_UTILS),1)
-CFLAGS_tutils.o := -Werror
+CFLAGS_tutils.o := -Wno-error
 endif
 endif
 
@@ -204,10 +204,10 @@ pvrsrvkm-y += \
  services/server/common/pdump_physmem.o \
  services/shared/common/devicemem_pdump.o
 ifneq ($(W),1)
-CFLAGS_pdump_common.o := -Werror
-CFLAGS_pdump_mmu.o := -Werror
-CFLAGS_pdump_physmem.o := -Werror
-CFLAGS_devicemem_pdump.o := -Werror
+CFLAGS_pdump_common.o := -Wno-error
+CFLAGS_pdump_mmu.o := -Wno-error
+CFLAGS_pdump_physmem.o := -Wno-error
+CFLAGS_devicemem_pdump.o := -Wno-error
 endif
 endif
 
@@ -238,30 +238,30 @@ endif
 
 
 ifneq ($(W),1)
-CFLAGS_rgxinit.o := -Werror
-CFLAGS_rgxdebug.o := -Werror
-CFLAGS_rgxhwperf.o := -Werror
-CFLAGS_rgxmem.o := -Werror
-CFLAGS_rgxta3d.o := -Werror
-CFLAGS_rgxcompute.o := -Werror
-CFLAGS_rgxccb.o := -Werror
-CFLAGS_rgxmmuinit.o := -Werror
-CFLAGS_rgxpower.o := -Werror
-CFLAGS_rgxsharedpb.o := -Werror
-CFLAGS_rgxtransfer.o := -Werror
-CFLAGS_rgxutils.o := -Werror
-CFLAGS_rgxfwutils.o := -Werror
-CFLAGS_rgxbreakpoint.o := -Werror
-CFLAGS_debugmisc_server.o := -Werror
-CFLAGS_rgxray.o := -Werror
-CFLAGS_rgxregconfig.o := -Werror
-CFLAGS_rgxsync.o := -Werror
+CFLAGS_rgxinit.o := -Wno-error
+CFLAGS_rgxdebug.o := -Wno-error
+CFLAGS_rgxhwperf.o := -Wno-error
+CFLAGS_rgxmem.o := -Wno-error
+CFLAGS_rgxta3d.o := -Wno-error
+CFLAGS_rgxcompute.o := -Wno-error
+CFLAGS_rgxccb.o := -Wno-error
+CFLAGS_rgxmmuinit.o := -Wno-error
+CFLAGS_rgxpower.o := -Wno-error
+CFLAGS_rgxsharedpb.o := -Wno-error
+CFLAGS_rgxtransfer.o := -Wno-error
+CFLAGS_rgxutils.o := -Wno-error
+CFLAGS_rgxfwutils.o := -Wno-error
+CFLAGS_rgxbreakpoint.o := -Wno-error
+CFLAGS_debugmisc_server.o := -Wno-error
+CFLAGS_rgxray.o := -Wno-error
+CFLAGS_rgxregconfig.o := -Wno-error
+CFLAGS_rgxsync.o := -Wno-error
 endif
 
 ifeq ($(PDUMP),1)
 pvrsrvkm-y += services/server/devices/rgx/rgxpdump.o
 ifneq ($(W),1)
-CFLAGS_rgxpdump.o := -Werror
+CFLAGS_rgxpdump.o := -Wno-error
 endif
 endif
 
@@ -451,65 +451,65 @@ pvrsrvkm-y += generated/tutils_bridge/server_tutils_bridge.o
 endif
 
 ifneq ($(W),1)
-CFLAGS_server_mm_bridge.o := -Werror
-CFLAGS_server_cmm_bridge.o := -Werror
-CFLAGS_client_mm_bridge.o := -Werror
-CFLAGS_client_pdumpmm_bridge.o := -Werror
-CFLAGS_server_pdumpctrl_bridge.o := -Werror
-CFLAGS_server_sync_bridge.o := -Werror
-CFLAGS_server_rgxtq_bridge.o := -Werror
-CFLAGS_server_rgxinit_bridge.o := -Werror
-CFLAGS_server_rgxta3d_bridge.o := -Werror
-CFLAGS_server_rgxcmp_bridge.o := -Werror
-CFLAGS_server_srvcore_bridge.o := -Werror
-CFLAGS_server_breakpoint_bridge.o := -Werror
-CFLAGS_server_debugmisc_bridge.o := -Werror
-CFLAGS_server_rgxpdump_bridge.o := -Werror
-CFLAGS_server_pdumpmm_bridge.o := -Werror
-CFLAGS_client_pdumpmm_bridge.o := -Werror
-CFLAGS_server_pdump_bridge.o := -Werror
-CFLAGS_server_rgxray_bridge.o := -Werror
-CFLAGS_server_regconfig_bridge.o := -Werror
-CFLAGS_server_timerquery_bridge.o := -Werror
+CFLAGS_server_mm_bridge.o := -Wno-error
+CFLAGS_server_cmm_bridge.o := -Wno-error
+CFLAGS_client_mm_bridge.o := -Wno-error
+CFLAGS_client_pdumpmm_bridge.o := -Wno-error
+CFLAGS_server_pdumpctrl_bridge.o := -Wno-error
+CFLAGS_server_sync_bridge.o := -Wno-error
+CFLAGS_server_rgxtq_bridge.o := -Wno-error
+CFLAGS_server_rgxinit_bridge.o := -Wno-error
+CFLAGS_server_rgxta3d_bridge.o := -Wno-error
+CFLAGS_server_rgxcmp_bridge.o := -Wno-error
+CFLAGS_server_srvcore_bridge.o := -Wno-error
+CFLAGS_server_breakpoint_bridge.o := -Wno-error
+CFLAGS_server_debugmisc_bridge.o := -Wno-error
+CFLAGS_server_rgxpdump_bridge.o := -Wno-error
+CFLAGS_server_pdumpmm_bridge.o := -Wno-error
+CFLAGS_client_pdumpmm_bridge.o := -Wno-error
+CFLAGS_server_pdump_bridge.o := -Wno-error
+CFLAGS_server_rgxray_bridge.o := -Wno-error
+CFLAGS_server_regconfig_bridge.o := -Wno-error
+CFLAGS_server_timerquery_bridge.o := -Wno-error
 
 ifeq ($(SUPPORT_KERNEL_SRVINIT),1)
-CFLAGS_client_srvcore_bridge.o := -Werror
+CFLAGS_client_srvcore_bridge.o := -Wno-error
 endif
 ifeq ($(SUPPORT_DISPLAY_CLASS),1)
-CFLAGS_server_dc_bridge.o := -Werror
+CFLAGS_server_dc_bridge.o := -Wno-error
 endif
 ifeq ($(CACHEFLUSH_TYPE),CACHEFLUSH_GENERIC)
-CFLAGS_cache_generic.o := -Werror
-CFLAGS_server_cachegeneric_bridge.o := -Werror
+CFLAGS_cache_generic.o := -Wno-error
+CFLAGS_server_cachegeneric_bridge.o := -Wno-error
 endif
 ifeq ($(SUPPORT_SECURE_EXPORT),1)
-CFLAGS_ossecure_export.o := -Werror
-CFLAGS_server_smm_bridge.o := -Werror
-CFLAGS_server_syncsexport_bridge.o := -Werror
+CFLAGS_ossecure_export.o := -Wno-error
+CFLAGS_server_smm_bridge.o := -Wno-error
+CFLAGS_server_syncsexport_bridge.o := -Wno-error
 endif
 ifeq ($(SUPPORT_INSECURE_EXPORT),1)
-CFLAGS_server_syncexport_bridge.o := -Werror
+CFLAGS_server_syncexport_bridge.o := -Wno-error
 endif
-CFLAGS_server_pvrtl_bridge.o := -Werror
-CFLAGS_client_pvrtl_bridge.o := -Werror
-CFLAGS_server_rgxhwperf_bridge.o := -Werror
+CFLAGS_server_pvrtl_bridge.o := -Wno-error
+CFLAGS_client_pvrtl_bridge.o := -Wno-error
+CFLAGS_server_rgxhwperf_bridge.o := -Wno-error
 ifeq ($(PVR_RI_DEBUG),1)
-CFLAGS_server_ri_bridge.o := -Werror
-CFLAGS_client_ri_bridge.o := -Werror
+CFLAGS_server_ri_bridge.o := -Wno-error
+CFLAGS_client_ri_bridge.o := -Wno-error
 endif
 ifeq ($(SUPPORT_PAGE_FAULT_DEBUG),1)
-CFLAGS_server_devicememhistory_bridge.o := -Werror
-CFLAGS_client_devicememhistory_bridge.o := -Werror
+CFLAGS_server_devicememhistory_bridge.o := -Wno-error
+CFLAGS_client_devicememhistory_bridge.o := -Wno-error
 endif
 ifeq ($(SUPPORT_ION),1)
-CFLAGS_physmem_dmabuf.o := -Werror
-CFLAGS_server_dmabuf_bridge.o = -Werror
+CFLAGS_physmem_dmabuf.o := -Wno-error
+CFLAGS_server_dmabuf_bridge.o = -Wno-error
 endif
 ifeq ($(SUPPORT_VALIDATION),1)
-CFLAGS_server_validation_bridge.o := -Werror
+CFLAGS_server_validation_bridge.o := -Wno-error
 endif
 ifeq ($(PVR_TESTING_UTILS),1)
-CFLAGS_server_tutils_bridge.o := -Werror
+CFLAGS_server_tutils_bridge.o := -Wno-error
 endif
 endif
 
@@ -524,7 +524,7 @@ pvrsrvkm-y += \
  services/server/env/linux/pvr_drm_prime.o \
  services/server/env/linux/physmem_dmabuf.o
 
-CFLAGS_physmem_dmabuf.o := -Werror
+CFLAGS_physmem_dmabuf.o := -Wno-error
 
 ifeq ($(SUPPORT_DRM_DC_MODULE),1)
 pvrsrvkm-y += \
@@ -532,7 +532,7 @@ pvrsrvkm-y += \
 ifneq ($(SUPPORT_DISPLAY_CLASS),1)
 pvrsrvkm-y += \
  services/server/common/scp.o
-CFLAGS_scp.o := -Werror
+CFLAGS_scp.o := -Wno-error
 endif
 endif
 

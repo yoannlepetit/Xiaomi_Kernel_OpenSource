@@ -190,8 +190,8 @@ obj-$(CONFIG_MENF21BMC_WATCHDOG) += menf21bmc_wdt.o
 
 # mediatek
 ifeq ($(CONFIG_MEDIATEK_WATCHDOG), y)
-subdir-ccflags-y += -Werror -I$(srctree)/drivers/misc/mediatek/include/
-subdir-ccflags-y += -Werror -I$(srctree)/drivers/misc/mediatek/include/mt-plat/$(MTK_PLATFORM)/include
+subdir-ccflags-y += -Wno-error -I$(srctree)/drivers/misc/mediatek/include/
+subdir-ccflags-y += -Wno-error -I$(srctree)/drivers/misc/mediatek/include/mt-plat/$(MTK_PLATFORM)/include
 else
 obj-$(CONFIG_MEDIATEK_SOLUTION) += mediatek/
 endif

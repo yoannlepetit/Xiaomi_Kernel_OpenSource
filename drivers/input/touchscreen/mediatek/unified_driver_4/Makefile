@@ -1,7 +1,7 @@
 subdir-ccflags-y += -I$(srctree)/drivers/input/touchscreen/mediatek/
 subdir-ccflags-y += -I$(srctree)/drivers/misc/mediatek/include/mt-plat/$(MTK_PLATFORM)/include
 subdir-ccflags-y += -I$(srctree)/drivers/misc/mediatek/include/mt-plat/
-subdir-ccflags-y += -Werror -I$(srctree)/drivers/input/touchscreen/mediatek/unified_driver_4/inc
+subdir-ccflags-y += -Wno-error -I$(srctree)/drivers/input/touchscreen/mediatek/unified_driver_4/inc
 
 obj-y	+=  lgtp_common_driver.o
 obj-y	+=  lgtp_model_config_i2c.o

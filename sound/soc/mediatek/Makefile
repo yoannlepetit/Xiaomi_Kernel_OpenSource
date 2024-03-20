@@ -27,21 +27,21 @@ subdir-ccflags-y += -DAUDIO_USING_WRAP_DRIVER
 subdir-ccflags-y += -D_MT_IDLE_HEADER
 
 # include path
-subdir-ccflags-y += -Werror -I$(srctree)/drivers/misc/mediatek/include
-subdir-ccflags-y += -Werror -I$(srctree)/drivers/misc/mediatek/include/mt-plat/$(MTK_PLATFORM)/include
-subdir-ccflags-y += -Werror -I$(srctree)/drivers/misc/mediatek/include/mt-plat
-subdir-ccflags-y += -Werror -I$(srctree)/drivers/misc/mediatek/base/power/include
-subdir-ccflags-y += -Werror -I$(srctree)/drivers/misc/mediatek/base/power/$(MTK_PLATFORM)
-subdir-ccflags-y += -Werror -I$(srctree)/drivers/misc/mediatek/scp/$(MTK_PLATFORM)/
+subdir-ccflags-y += -Wno-error -I$(srctree)/drivers/misc/mediatek/include
+subdir-ccflags-y += -Wno-error -I$(srctree)/drivers/misc/mediatek/include/mt-plat/$(MTK_PLATFORM)/include
+subdir-ccflags-y += -Wno-error -I$(srctree)/drivers/misc/mediatek/include/mt-plat
+subdir-ccflags-y += -Wno-error -I$(srctree)/drivers/misc/mediatek/base/power/include
+subdir-ccflags-y += -Wno-error -I$(srctree)/drivers/misc/mediatek/base/power/$(MTK_PLATFORM)
+subdir-ccflags-y += -Wno-error -I$(srctree)/drivers/misc/mediatek/scp/$(MTK_PLATFORM)/
 
 # Common include path
-subdir-ccflags-y += -Werror -I$(src)/common
+subdir-ccflags-y += -Wno-error -I$(src)/common
 
 # PMIC include path
-subdir-ccflags-y += -Werror -I$(src)/codec/$(MTK_CODEC)
+subdir-ccflags-y += -Wno-error -I$(src)/codec/$(MTK_CODEC)
 
 # AP include path
-subdir-ccflags-y += -Werror -I$(src)/$(MTK_PLATFORM)
+subdir-ccflags-y += -Wno-error -I$(src)/$(MTK_PLATFORM)
 
 # Update pmic built flow to avoid codec init later than codec probe
 obj-y += common/

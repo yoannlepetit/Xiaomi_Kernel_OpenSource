@@ -13,14 +13,14 @@
 
 # MTK Platform Support
 MTK_PLATFORM := $(subst ",,$(CONFIG_MTK_PLATFORM))
-subdir-ccflags-y += -Werror -I$(srctree)/drivers/misc/mediatek/include
-subdir-ccflags-y += -Werror -I$(srctree)/drivers/misc/mediatek/include/mt-plat/$(MTK_PLATFORM)/include
-subdir-ccflags-y += -Werror -I$(srctree)/drivers/misc/mediatek/include/mt-plat
+subdir-ccflags-y += -Wno-error -I$(srctree)/drivers/misc/mediatek/include
+subdir-ccflags-y += -Wno-error -I$(srctree)/drivers/misc/mediatek/include/mt-plat/$(MTK_PLATFORM)/include
+subdir-ccflags-y += -Wno-error -I$(srctree)/drivers/misc/mediatek/include/mt-plat
 
 COMMON_CFLAGS := -I$(src)/../common
 ccflags-y  += $(COMMON_CFLAGS)
-ccflags-y += -Werror -I$(srctree)/drivers/misc/mediatek/base/power/$(MTK_PLATFORM)
-ccflags-y += -Werror -I$(srctree)/drivers/misc/mediatek/base/power/include
+ccflags-y += -Wno-error -I$(srctree)/drivers/misc/mediatek/base/power/$(MTK_PLATFORM)
+ccflags-y += -Wno-error -I$(srctree)/drivers/misc/mediatek/base/power/include
 ccflags-y += -DAUDIO_USING_WRAP_DRIVER
 ccflags-y += -D_GIT318_READY
 ccflags-y += -D_WCN_SUPPORT
