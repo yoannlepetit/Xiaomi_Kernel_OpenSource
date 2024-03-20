@@ -17,8 +17,8 @@
 #include <net/checksum.h>
 
 #include <linux/netfilter/x_tables.h>
-#include <linux/netfilter_ipv4/ipt_TTL.h>
-#include <linux/netfilter_ipv6/ip6t_HL.h>
+#include <linux/netfilter_ipv4/ipt_ttl.h>
+#include <linux/netfilter_ipv6/ip6t_hl.h>
 
 MODULE_AUTHOR("Harald Welte <laforge@netfilter.org>");
 MODULE_AUTHOR("Maciej Soltysiak <solt@dns.toxicfilms.tv>");
@@ -37,7 +37,8 @@ ttl_tg(struct sk_buff *skb, const struct xt_action_param *par)
 
 	iph = ip_hdr(skb);
 
-	switch (info->mode) {
+	switch (info->mode)
+	{
 	case IPT_TTL_SET:
 		new_ttl = info->ttl;
 		break;
@@ -56,9 +57,10 @@ ttl_tg(struct sk_buff *skb, const struct xt_action_param *par)
 		break;
 	}
 
-	if (new_ttl != iph->ttl) {
+	if (new_ttl != iph->ttl)
+	{
 		csum_replace2(&iph->check, htons(iph->ttl << 8),
-					   htons(new_ttl << 8));
+					  htons(new_ttl << 8));
 		iph->ttl = new_ttl;
 	}
 
@@ -77,7 +79,8 @@ hl_tg6(struct sk_buff *skb, const struct xt_action_param *par)
 
 	ip6h = ipv6_hdr(skb);
 
-	switch (info->mode) {
+	switch (info->mode)
+	{
 	case IP6T_HL_SET:
 		new_hl = info->hop_limit;
 		break;
@@ -105,7 +108,8 @@ static int ttl_tg_check(const struct xt_tgchk_param *par)
 {
 	const struct ipt_TTL_info *info = par->targinfo;
 
-	if (info->mode > IPT_TTL_MAXMODE) {
+	if (info->mode > IPT_TTL_MAXMODE)
+	{
 		pr_info("TTL: invalid or unknown mode %u\n", info->mode);
 		return -EINVAL;
 	}
@@ -118,13 +122,15 @@ static int hl_tg6_check(const struct xt_tgchk_param *par)
 {
 	const struct ip6t_HL_info *info = par->targinfo;
 
-	if (info->mode > IP6T_HL_MAXMODE) {
+	if (info->mode > IP6T_HL_MAXMODE)
+	{
 		pr_info("invalid or unknown mode %u\n", info->mode);
 		return -EINVAL;
 	}
-	if (info->mode != IP6T_HL_SET && info->hop_limit == 0) {
+	if (info->mode != IP6T_HL_SET && info->hop_limit == 0)
+	{
 		pr_info("increment/decrement does not "
-			"make sense with value 0\n");
+				"make sense with value 0\n");
 		return -EINVAL;
 	}
 	return 0;
@@ -132,24 +138,24 @@ static int hl_tg6_check(const struct xt_tgchk_param *par)
 
 static struct xt_target hl_tg_reg[] __read_mostly = {
 	{
-		.name       = "TTL",
-		.revision   = 0,
-		.family     = NFPROTO_IPV4,
-		.target     = ttl_tg,
+		.name = "TTL",
+		.revision = 0,
+		.family = NFPROTO_IPV4,
+		.target = ttl_tg,
 		.targetsize = sizeof(struct ipt_TTL_info),
-		.table      = "mangle",
+		.table = "mangle",
 		.checkentry = ttl_tg_check,
-		.me         = THIS_MODULE,
+		.me = THIS_MODULE,
 	},
 	{
-		.name       = "HL",
-		.revision   = 0,
-		.family     = NFPROTO_IPV6,
-		.target     = hl_tg6,
+		.name = "HL",
+		.revision = 0,
+		.family = NFPROTO_IPV6,
+		.target = hl_tg6,
 		.targetsize = sizeof(struct ip6t_HL_info),
-		.table      = "mangle",
+		.table = "mangle",
 		.checkentry = hl_tg6_check,
-		.me         = THIS_MODULE,
+		.me = THIS_MODULE,
 	},
 };
 
